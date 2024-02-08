@@ -1,4 +1,6 @@
 #Ignorar archivos ejecutables
 *.exe
 #Ignorar carpeta output
-/output
+/output 
+#Ignorar carpeta .vscode
+/.vscode
