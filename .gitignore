@@ -4,3 +4,5 @@
 /output 
 #Ignorar carpeta .vscode
 /.vscode
+#Ignorar carpeta solucion del profe
+/Solucion del Profe

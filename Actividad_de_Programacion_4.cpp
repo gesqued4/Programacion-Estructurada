@@ -38,9 +38,9 @@ int main (){                    //funcion main
             ciclo_while = true;                 
             while (ciclo_while) {               //inicio while
                 printf("%d ", i);
-                i = numfib_1 + numfib_2;
                 numfib_1 = numfib_2;
                 numfib_2 = i;
+                i = numfib_1 + numfib_2;
                 if (i > numend) {               //condicional if para terminar ciclo while
                 ciclo_while = false;
                 }
@@ -49,9 +49,9 @@ int main (){                    //funcion main
         case 3:                                          //case 3: ciclo do while
             do {                                         //inicio do while                
                 printf("%d ", i);   
-                i = numfib_1 + numfib_2;
                 numfib_1 = numfib_2;
                 numfib_2 = i;
+                i = numfib_1 + numfib_2;
                 if (i <= numend) {                      //condicional if para bucle do while
                 ciclo_dowhile = true;
                 } 
