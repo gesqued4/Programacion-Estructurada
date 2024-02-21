@@ -1,0 +1,4 @@
+#Ignorar archivos ejecutables
+*.exe
+#Ignorar carpeta output
+/output 
