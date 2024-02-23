@@ -1,3 +1,13 @@
+/*************************Presentacion*************************
+        NOMBRE: Gerardo Esqueda Padilla
+        FECHA: 23 de Febrero de 2024
+        PROGRAMA: Actividad_de_Programacion_7.cpp
+        CENTRO UNIVERSITARIO DE LOS ALTOS / UNIVERSIDAD DE GUADALAJARA
+        INGENIERIA EN COMPUTACION / 2DO SEMESTRE
+        PROFESOR: Sergio Franco Casillas
+        DESCRIPCION: Operaciones basicas con matrices
+**************************************************************/
+
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
