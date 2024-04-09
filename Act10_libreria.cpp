@@ -161,7 +161,7 @@ void multi_matriz(int matrizA[][15], int matrizB[][15], int matrizRes[][15], int
     matriz_resultado(matrizRes, size);
 }
 
-// Funcion para dividir matrices
+/* Funcion para dividir matrices
 void dividir_matriz(int matrizA[][15], int matrizB[][15], double matrizRes[][15], int size) {
 
     bool inverso = true;
@@ -193,11 +193,11 @@ void dividir_matriz(int matrizA[][15], int matrizB[][15], double matrizRes[][15]
     multi_matriz(matrizA, inverso_matrizB, matrizRes, size);
 
 	matriz_resultado(matrizRes, size);
-}
+} */
 
 // Funcion para imprimir matriz resultado operacion
 void matriz_resultado(int matrizRes[][15], int size){
-    cout << "\n\nEl resultado de sumar estas matrices es:\n";
+    cout << "\n\nEl resultado de la operacion realizada de estas matrices es:\n";
         for (int i = 0; i < size; i++){ // ciclo for para imprimir la matriz suma
             for (int j = 0; j < size; j++){
                 cout << "[" << matrizRes[i][j] << "]"<< "\t";

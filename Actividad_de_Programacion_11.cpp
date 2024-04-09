@@ -9,7 +9,6 @@ int main (){
     int i = 0 ;
     const int tamano = 50;
     int array [tamano] = {0};
-
     while(op_while){            // inicio ciclo while
         cout << "\n1. Ingresar valores\n2. Listar valores\n3. Salir\n" << endl;
         cin >> op_switch;
@@ -25,6 +24,7 @@ int main (){
             break;          // fin case 2
             case '3':       // case 3: salir
                 op_while = false;
+            break;
             default:
                 cout << "Esa opcion no existe...";
         }       // fin switch

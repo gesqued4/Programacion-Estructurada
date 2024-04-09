@@ -17,6 +17,7 @@
 #include <vector>
 #include <string>
 #include <algorithm>
+#include <ctype.h>
 using namespace std;
 #include "Act_9_lib.cpp"
 

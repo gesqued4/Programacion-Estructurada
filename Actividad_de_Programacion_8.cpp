@@ -87,7 +87,7 @@ int main()
             }
             else if (conjunto_one == 1)
             {
-                cout << "Conjunto lleno, vacie el conjunto para continuar...";
+                cout << "\nConjunto lleno, vacie el conjunto para continuar...";
             }
             break; // fin case 1
 
@@ -124,7 +124,7 @@ int main()
             }
             else if (conjunto_two == 1)
             {
-                cout << "Conjunto lleno, vacie el conjunto para continuar";
+                cout << "\nConjunto lleno, vacie el conjunto para continuar";
             }
             break; // fin case 2
         case 3:    // case 3: listar valores
@@ -198,7 +198,7 @@ int main()
             {
                 cout << "\nOpcion incorrecta, seleccione una opcion valida...";
             }
-            break;
+
 
             break; // fin case 8
         case 9:    // case 9: vaciar segundo conjunto

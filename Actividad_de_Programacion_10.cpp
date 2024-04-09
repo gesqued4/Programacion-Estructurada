@@ -29,7 +29,7 @@ int main() {
 
         switch (op_switch){ // switch opciones
 
-            case '1': // case 1: ingresar valores 
+        case '1': // case 1: ingresar valores 
             if (size < 2 || size > 15){
             cout << "\nIngrese el tamano de las matrices (2x2 - 15x15): "; 
             cin >> size;
