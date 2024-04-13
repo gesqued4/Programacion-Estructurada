@@ -11,7 +11,7 @@
 #include <cstdlib>
 #include <ctime>
 using namespace std;
-#include "Act10_libreria.cpp"
+#include "Act_10_lib.cpp"
 int main() { 
 
 

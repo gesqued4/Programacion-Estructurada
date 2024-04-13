@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 using namespace std;
-#include "mylib_act9_profe.cpp"
+#include "Act_9_profe_lib.cpp"
 
 int main() {
     vector<char> conjunto_a, conjunto_b, conjunto_res;

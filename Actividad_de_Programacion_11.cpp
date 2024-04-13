@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 using namespace std;
-#include "Act11_libreria.cpp"
+#include "Act_11_lib.cpp"
 
 int main (){
     bool op_while = true;       //declarar variables
