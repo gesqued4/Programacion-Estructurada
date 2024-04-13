@@ -25,6 +25,7 @@ int main (){
     int **torre_hanoi;
     int tam_discos[num_discos] = {1, 2, 3, 4, 5, 6, 7, 8};
     int k = 0;
+    int ciclo = true;
 
     while(op_while){        //Ciclo while
 
@@ -100,32 +101,281 @@ int main (){
                 }
             
             
-            // Solicitar la columna de origen y destino para mover el disco
-            int columna_origen, columna_destino;
-            cout << "Ingrese la columna de origen (1-" << num_discos << "): ";
-            cin >> columna_origen;
-            cout << "Ingrese la columna de destino (1-" << num_discos << "): ";
-            cin >> columna_destino;
+                // Solicitar la torre de origen y destino para mover el disco
+                char torre_origen, torre_destino;
+                int torreA = 0, torreB = 1, torreC = 2;
+                int posA, posB, posC, topA, topB, topC;
+                int mov = 0;
 
-            // Verificar si las columnas son válidas
-            if (columna_origen >= 1 && columna_origen <= num_discos && columna_destino >= 1 && columna_destino <= num_discos) {
-                // Convertir el número de columna a índice de arreglo restando 1
-                columna_origen--;
-                columna_destino--;
+                while(ciclo){
+                    int discosA = num_discos - 1;
+                    int discosB = num_discos - 1;
+                    int discosC = num_discos - 1;
+   
+                    cout << "Ingrese la torre de origen (A - C): ";
+                    cin >> torre_origen;
 
-                // Verificar si hay un disco en la columna de origen
-                if (torre_hanoi[columna_origen][0] != 0) {
-                  mover_disco(torre_hanoi, num_discos, columna_origen, columna_destino);
-                } else {
-                    cout << "La columna de origen esta vacia. No hay discos para mover." << endl;
+                    switch (torre_origen){
+                        case 'A':
+                            cout << "Ingrese la posicion de origen (1 - " << num_discos << "): ";
+                            cin >> posA;
+
+                            topA = posA - 1;
+
+                            if(posA > 0 && posA <= num_discos){
+                                if(torre_hanoi[topA][torreA] != 0 && torre_hanoi[posA - 1][torreA] != 1){
+                                    topA--;
+                                }
+                            }
+
+                            if((posA > 0 && posA <= num_discos && torre_hanoi[posA - 1][torreA] != 0) && (torre_hanoi[topA][torreA] == 0 || torre_hanoi[posA - 1][torreA] == 1)){
+
+                                cout << "Ingrese la torre de destino (B o C): ";
+                                cin >> torre_destino;
+
+                                switch (torre_destino){
+                                    case 'B':
+
+                                    cout << "Ingrese la posicion de destino (1 - " << num_discos << "): ";
+                                    cin >> posB;
+
+                                    if(posB > 0 && posB <= num_discos && torre_hanoi[posB - 1][torreB] == 0){
+
+                                        while(torre_hanoi[discosB][torreB] != 0){
+                                            discosB--;
+                                        }
+                                    
+                                        if((discosB == num_discos - 1 || torre_hanoi[posA - 1][torreA] < torre_hanoi[posB][torreB]) && posB - 1 == discosB){
+                                            torre_hanoi[discosB][torreB] = torre_hanoi[posA - 1][torreA];
+                                            torre_hanoi[posA - 1][torreA] = 0;
+                                            mov++;
+                                        }
+                                        else {
+                                            cout << "Movimiento invalido, no puedes colocar un disco mas grande o posicion de destino incorrecta..." << endl;
+                                        }
+                                    }
+                                    else {
+                                        cout << "Posicion fuera de rango o posicion ocupada..." << endl;
+                                    }
+ 
+                                    break;
+                                    case 'C':
+
+                                        cout << "Ingrese la posicion de destino (1 - " << num_discos << "): ";
+                                        cin >> posC;
+
+                                    if(posC > 0 && posC <= num_discos && torre_hanoi[posC - 1][torreC] == 0){
+
+                                        while(torre_hanoi[discosC][torreC] != 0){
+                                            discosC--;
+                                        }
+                                    
+                                        if((discosC == num_discos - 1 || torre_hanoi[posA - 1][torreA] < torre_hanoi[posC][torreC]) && posC - 1 == discosC){
+                                            torre_hanoi[discosC][torreC] = torre_hanoi[posA - 1][torreA];
+                                            torre_hanoi[posA - 1][torreA] = 0;
+                                            mov++;
+                                        }
+                                        else {
+                                            cout << "Movimiento invalido, no puedes colocar un disco mas grande o posicion de destino incorrecta..." << endl;
+                                        }
+                                    }
+                                    else {
+                                        cout << "Posicion fuera de rango o posicion ocupada..." << endl;
+                                    }
+
+                                    break;
+                                    default:
+                                        cout << "Opcion invalida" << endl;
+                                }
+                            }
+                            else {
+                                cout << "Posicion fuera de rango o vacia, selecciona un disco valido antes de continuar..." << endl;
+                            }
+
+                        break;
+
+                        case 'B':
+                            cout << "Ingrese la posicion de origen (1 - " << num_discos << "): ";
+                            cin >> posB;
+
+                            topB = posB - 1;
+
+                            if(posB > 0 && posB <= num_discos){
+                                if(torre_hanoi[topB][torreB] != 0 && torre_hanoi[posB - 1][torreB] != 1){
+                                    topB--;
+                                }
+                            }
+
+                            if((posB > 0 && posB <= num_discos && torre_hanoi[posB - 1][torreB] != 0) && (torre_hanoi[topB][torreB] == 0 || torre_hanoi[posB - 1][torreB] == 1)){
+
+                                cout << "Ingrese la torre de destino (A o C): ";
+                                cin >> torre_destino;
+
+                
+                                switch (torre_destino){
+                                    case 'A':
+
+                                        cout << "Ingrese la posicion de destino (1 - " << num_discos << "): ";
+                                        cin >> posA;
+
+                                        if(posA > 0 && posA <= num_discos && torre_hanoi[posA - 1][torreA] == 0){
+
+                                            while(torre_hanoi[discosA][torreA] != 0){
+                                                discosA--;
+                                            }
+
+                                            if((discosA == num_discos - 1 || torre_hanoi[posB - 1][torreB] < torre_hanoi[posA][torreA]) && posA - 1 == discosA){
+                                                torre_hanoi[discosA][torreA] = torre_hanoi[posB - 1][torreB];
+                                                torre_hanoi[posB - 1][torreB] = 0;
+                                                mov++;
+                                            }
+                                            else {
+                                                cout << "Movimiento invalido, no puedes colocar un disco mas grande o posicion de destino incorrecta..." << endl;
+                                            }
+                                        }
+                                        else {
+                                            cout << "Posicion fuera de rango o posicion ocupada..." << endl;
+                                        }
+
+                                    break;
+                                    case 'C':
+
+                                        cout << "Ingrese la posicion de destino (1 - " << num_discos << "): ";
+                                        cin >> posC;
+
+                                        if(posC > 0 && posC <= num_discos && torre_hanoi[posC - 1][torreC] == 0){
+                                      
+                                            while(torre_hanoi[discosC][torreC] != 0){
+                                                discosC--;
+                                            }
+                                
+                                            if((discosC == num_discos - 1 || torre_hanoi[posB - 1][torreB] < torre_hanoi[posC][torreC]) && posC - 1 == discosC){
+                                                torre_hanoi[discosC][torreC] = torre_hanoi[posB - 1][torreB];
+                                                torre_hanoi[posB - 1][torreB] = 0;
+                                                mov++;
+                                            }
+                                            else {
+                                                cout << "Movimiento invalido, no puedes colocar un disco mas grande o posicion de destino incorrecta..." << endl;
+                                            }
+                                        }
+                                        else {
+                                            cout << "Posicion fuera de rango o posicion ocupada..." << endl;
+                                        }
+
+                                    break;
+                                    default:
+                                        cout << "Opcion invalida" << endl;
+                                }
+                            }
+                            else {
+                                cout << "Posicion fuera de rango o vacia, selecciona un disco valido antes de continuar..." << endl;
+                            }
+
+                        break;
+
+                        case 'C':
+                            cout << "Ingrese la posicion de origen (1 - " << num_discos << "): ";
+                            cin >> posC;
+
+                            topC = posC - 1;
+
+                            if(posC > 0 && posC <= num_discos){
+                                if(torre_hanoi[topC][torreC] != 0 && torre_hanoi[posC - 1][torreC] != 1){
+                                    topC--;
+                                }
+                            }
+
+                            if((posC > 0 && posC <= num_discos && torre_hanoi[posC - 1][torreC] != 0) && (torre_hanoi[topC][torreC] == 0 || torre_hanoi[posC - 1][torreC] == 1)){
+
+                                cout << "Ingrese la torre de destino (A o B): ";
+                                cin >> torre_destino;
+
+                                switch (torre_destino){
+                                    case 'A':
+
+                                        cout << "Ingrese la posicion de destino (1 - " << num_discos << "): ";
+                                        cin >> posA;
+
+                                        if(posA > 0 && posA <= num_discos && torre_hanoi[posA - 1][torreA] == 0){
+
+                                            while(torre_hanoi[discosA][torreA] != 0){
+                                                discosA--;
+                                            }
+                                
+                                            if((discosA == num_discos - 1 || torre_hanoi[posC - 1][torreC] < torre_hanoi[posA][torreA]) && posA - 1 == discosA){
+                                                torre_hanoi[discosA][torreA] = torre_hanoi[posC - 1][torreC];
+                                                torre_hanoi[posC - 1][torreC] = 0;
+                                                mov++;
+                                            }
+                                            else {
+                                                cout << "Movimiento invalido, no puedes colocar un disco mas grande o posicion de destino incorrecta..." << endl;
+                                            }
+                                        }
+                                        else {
+                                            cout << "Posicion fuera de rango o posicion ocupada..." << endl;
+                                        }
+
+                                    break;
+                                    case 'B':
+
+                                        cout << "Ingrese la posicion de destino (1 - " << num_discos << "): ";
+                                        cin >> posB;
+                                
+                                        if(posB > 0 && posB <= num_discos && torre_hanoi[posB - 1][torreB] == 0){
+
+                                            while(torre_hanoi[discosB][torreB] != 0){
+                                                discosB--;
+                                            }
+                                
+                                            if((discosB == num_discos - 1 || torre_hanoi[posC - 1][torreC] < torre_hanoi[posB][torreB]) && posB - 1 == discosB){
+                                                torre_hanoi[discosB][torreB] = torre_hanoi[posC - 1][torreC];
+                                                torre_hanoi[posC - 1][torreC] = 0;
+                                                mov++;
+                                            }
+                                            else {
+                                                cout << "Movimiento invalido, no puedes colocar un disco mas grande o posicion de destino incorrecta..." << endl;
+                                            }
+                                        }
+                                        else {
+                                            cout << "Posicion fuera de rango o posicion ocupada..." << endl;
+                                        }
+
+                                    break;
+                                    default:
+                                        cout << "Opcion invalida" << endl;
+                                    }
+                            }
+                            else {
+                                cout << "Posicion fuera de rango o vacia, selecciona un disco valido antes de continuar..." << endl;
+                            }
+
+                        break;
+                        default:
+                            cout << "Opcion invalida" << endl;
                     }
-            } else {
-                cout << "Columnas de origen o destino invalidas." << endl;
-                }
 
-            // Imprimir el estado actualizado del array
-            imprimir_torre(torre_hanoi, num_discos, filas);
-            }
+                    // Imprimir el estado actualizado del array
+                    imprimir_torre(torre_hanoi, num_discos, filas);
+                    cout << "Movimientos: " << mov << endl << endl;
+
+                    if(torre_hanoi[0][torreC] != 0){
+
+                        cout << "Felicidades has completado la torre de hanoi" << endl;
+                        casoGanador(num_discos, 'A', 'C', 'B', movimientos);
+
+                        if(mov == movimientos){
+                            cout << "Solucion perfecta movimientos: " << movimientos << endl;
+                            ciclo = false;
+                            op_switch = '0';
+                        }
+                        else {
+                            cout << "Haz completado la torre de hanoi pero puedes hacerlo en menos movimientos..." << endl;
+                            ciclo = false;
+                            op_switch = '0';
+                        }
+                    }
+                }   // fin ciclo while
+            }   // condicional para validar los discos ingresados
             else {
                 cout << "La cantidad de discos ingresada esta fuera del rango permitido..." << endl;
                 num_discos = 0;

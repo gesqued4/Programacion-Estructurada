@@ -43,3 +43,14 @@ void hanoi(int num, char origen, char destino, char auxiliar, int &movimientos) 
         hanoi(num - 1, auxiliar, destino, origen, movimientos);
     }
 }
+
+// Función recursiva que resuelve el problema de las Torres de Hanoi
+void casoGanador(int num, char origen, char destino, char auxiliar, int &movimientos) {
+    if (num == 1) {
+        movimientos++;
+    } else {
+        casoGanador(num - 1, origen, auxiliar, destino, movimientos);
+        movimientos++;
+        casoGanador(num - 1, auxiliar, destino, origen, movimientos);
+    }
+}
