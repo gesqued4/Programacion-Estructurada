@@ -20,16 +20,17 @@ using namespace std;
 int main (){
     bool op_while = true;
     char op_switch = '0';
-    int num_discos = 0, movimientos = 0;
+    int num_discos = 0, movimientos = 0, movimient = 0;
     const int filas = 3;
     int **torre_hanoi;
     int tam_discos[num_discos] = {1, 2, 3, 4, 5, 6, 7, 8};
     int k = 0;
+    int l = 0;
     int ciclo = true;
 
     while(op_while){        //Ciclo while
 
-    if (op_switch == '0'){
+    if (op_switch == '0' && l != 1){
     cout << "\n\t\t\tTorre de Hanoi" << endl;
     cout << " 1. Instrucciones" << endl;
     cout << " 2. Solucion" << endl;
@@ -37,6 +38,15 @@ int main (){
     cout << " 4. Salir" << endl;
     cout << "Seleccion una opcion: ";
     cin >> op_switch;
+    }
+    else {
+           cout << "\n\t\t\tTorre de Hanoi" << endl;
+    cout << " 1. Instrucciones" << endl;
+    cout << " 2. Solucion" << endl;
+    cout << " 4. Salir" << endl;
+    cout << "Seleccion una opcion: ";
+    cin >> op_switch;
+
     }
 
     switch(op_switch){    
@@ -57,13 +67,13 @@ int main (){
             if (n_discos >= 3 && n_discos <= 8){
                 cout << "Numero de discos valido! La solucion del juego es la siguiente:" << endl;
                 cout << endl;
-                hanoi(n_discos, 'A', 'C', 'B', movimientos);
-                cout << "Total de movimientos realizados: " << movimientos << endl;
+                hanoi(n_discos, 'A', 'C', 'B', movimient);
+                cout << "Total de movimientos realizados: " << movimient << endl;
             }
             else {
                 cout << "La cantidad de discos ingresada esta fuera del rango permitido..." << endl;
             }
-            movimientos = 0;
+            movimient = 0;
             op_switch = '0';
         
         break;          //Fin case 2
@@ -366,11 +376,13 @@ int main (){
                         if(mov == movimientos){
                             cout << "Solucion perfecta movimientos: " << movimientos << endl;
                             ciclo = false;
+                            l = 1;
                             op_switch = '0';
                         }
                         else {
                             cout << "Haz completado la torre de hanoi pero puedes hacerlo en menos movimientos..." << endl;
                             ciclo = false;
+                            l = 1;
                             op_switch = '0';
                         }
                     }

@@ -32,15 +32,15 @@ void mover_disco(int **torre_hanoi, int num_discos, int columna_origen, int colu
 }
 
 // Función recursiva que resuelve el problema de las Torres de Hanoi
-void hanoi(int num, char origen, char destino, char auxiliar, int &movimientos) {
+void hanoi(int num, char origen, char destino, char auxiliar, int &movimient) {
     if (num == 1) {
         cout << "Mueva el disco " << num << " desde " << origen << " hasta " << destino << "\t\t" << endl;
-        movimientos++;
+        movimient++;
     } else {
-        hanoi(num - 1, origen, auxiliar, destino, movimientos);
+        hanoi(num - 1, origen, auxiliar, destino, movimient);
         cout << "Mueva el disco " << num << " desde " << origen << " hasta " << destino << endl;
-        movimientos++;
-        hanoi(num - 1, auxiliar, destino, origen, movimientos);
+        movimient++;
+        hanoi(num - 1, auxiliar, destino, origen, movimient);
     }
 }
 
