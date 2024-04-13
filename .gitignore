@@ -2,3 +2,5 @@
 *.exe
 #Ignorar carpeta output
 /output 
+#Ignorar carpeta .vscode
+*.vscode
