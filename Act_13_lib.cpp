@@ -24,8 +24,19 @@ int contar_vocales_consonantes (string palabra, int &vocales, int &consonantes, 
     return consonantes;
 }
 
+void eliminarEspacios(string& cadena) {
+    size_t j = 0;
+    for (size_t i = 0; i < cadena.length(); i++) {
+        if (cadena[i] != ' ') {
+            cadena[j++] = cadena[i];
+        }
+    }
+    cadena.resize(j); // Redimensionar la cadena para eliminar los caracteres restantes
+}
+
 // Función para verificar si una palabra es un palíndromo
 bool palindromo(string palabra) {
+    eliminarEspacios(palabra); // Eliminar los espacios de la palabra
     int longitud = palabra.length();
 
     // Verifica la condición de palíndromo
